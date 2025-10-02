@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veera Nithin Gulajapu </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #16213e, #0f3460);
+            color: #e6b800;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideInDown 1s ease-out, glow 2s infinite;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            animation: pulse 2s infinite, scaleIn 1.5s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #e6b800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff4d88;
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://via.placeholder.com/1920x1080?text=Hero+Background') no-repeat center/cover;
+            color: #e6b800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            animation: fadeIn 2s ease-in, backgroundPan 20s infinite linear;
+        }
+
+        #hero .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: rotateIn 2s ease-out, bounce 3s infinite;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(230,184,0,0.7);
+            transition: transform 0.3s;
+        }
+
+        #hero .logo:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        #hero h2 {
+            font-size: 3em;
+            animation: slideInLeft 1.5s ease-out, textGlow 2s infinite;
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            max-width: 600px;
+            text-align: center;
+            animation: slideInRight 1.5s ease-out;
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 20px 50px;
+            text-align: center;
+            background-color: #262640;
+            color: #ff4d88;
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
+        }
+
+        #about img {
+            width: 220px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            animation: bounceIn 1.5s ease-out, spinHover 4s infinite;
+            box-shadow: 0 0 20px rgba(255,77,136,0.5);
+            transition: transform 0.3s;
+        }
+
+        #about img:hover {
+            transform: scale(1.15);
+        }
+
+        #about p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 50px 20px;
+            text-align: center;
+            background: #1a1a2e;
+            color: #ff4d88;
+            animation: fadeInUp 1s ease-out 0.7s;
+            animation-fill-mode: both;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .skill {
+            background: #262640;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: popIn 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .skill:nth-child(1) { animation-delay: 0.2s; }
+        .skill:nth-child(2) { animation-delay: 0.4s; }
+        .skill:nth-child(3) { animation-delay: 0.6s; }
+        .skill:nth-child(4) { animation-delay: 0.8s; }
+
+        .skill img {
+            width: 60px;
+            height: auto;
+            margin-bottom: 10px;
+            animation: spin 3s infinite linear;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            color: #e6b800;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #contact p {
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #e6b800;
+            font-size: 2em;
+            transition: transform 0.3s, color 0.3s;
+            animation: popIn 1s ease-out;
+        }
+
+        .social-icons a:hover {
+            color: #ff4d88;
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1b2a;
+            color: #e6b800;
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out 1s;
+            animation-fill-mode: both;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotate(-360deg); }
+            to { opacity: 1; transform: rotate(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(230,184,0,0.5); }
+            50% { box-shadow: 0 0 20px rgba(230,184,0,0.8); }
+            100% { box-shadow: 0 0 10px rgba(230,184,0,0.5); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+            50% { text-shadow: 2px 2px 8px rgba(230,184,0,0.8); }
+            100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        }
+
+        @keyframes spinHover {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes backgroundPan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Veera's Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <img src="https://image2url.com/images/1759388078459-554dfa71-c7ca-4db1-8615-06b35f780788.jpg" alt="Veera's Logo" class="logo">
+        <h2>Hi, I'm Veera</h2>
+        <p>Diploma Student in AIML | Web Developer | Prompt Engineer</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="https://image2url.com/images/1759385262431-7f1d924e-9eee-4271-9b66-aaa161f112f1.jpg" alt="Veera's Profile Photo">
+        <p>Hello! I'm Veera, a Diploma student in Artificial Intelligence & Machine Learning at Pydah College of Engineering, Patavala. I specialize in crafting smart, responsive web applications using AI tools, Python, and Java.</p>
+        <p>My passion lies in blending creativity with technology—whether it's building animated portfolios, engineering intelligent prompts, or coding vibrant user interfaces. I'm actively seeking internship opportunities to contribute to innovative projects and grow as a developer.</p>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">
+                <img src="https://th.bing.com/th/id/OIP.GRiu52GdP15o4ipUKdN59wHaC9?w=304&h=139&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Prompt Engineering Icon">
+                <h3>Prompt Engineering</h3>
+                <p>Designing intelligent AI prompts for optimal outcomes.</p>
+            </div>
+            <div class="skill">
+                <img src="data:image/webp;base64,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" alt="Web Development Icon">
+                <h3>Web Development</h3>
+                <p>Building responsive websites with HTML, CSS, JS, and AI integrations.</p>
+            </div>
+            <div class="skill">
+                <img src="data:image/webp;base64,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" alt="Python Icon">
+                <h3>Python & Java</h3>
+                <p>Programming robust applications with Python and Java.</p>
+            </div>
+            <div class="skill">
+                <img src="https://th.bing.com/th/id/OIP.lFWpbJAwzlHkrPF9htFaxwHaHa?w=186&h=186&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Communication Icon">
+                <h3>Communication skills</h3>
+                <p>Collaborating effectively with teams and clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Interested in collaborating or hiring? Let's connect!</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/nithin-gv-00753b352" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:nithingv524@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/veera_nithin_gulajapu" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+918187827567" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Veera Nithin. All rights reserved.</p>
+    </footer>
+</body>
+</html>
